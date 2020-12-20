@@ -1,10 +1,10 @@
 <?php
 
-namespace Grosv\LaravelPackageTemplate;
+namespace ArtisanBuild\WaitingList;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelPackageTemplateProvider extends ServiceProvider
+class WaitingListProvider extends ServiceProvider
 {
     public function boot(): void
     {

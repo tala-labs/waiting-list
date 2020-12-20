@@ -1,18 +1,18 @@
 {
-    "name": "grosv/laravel-package-template",
-    "description": "A repository template for Laravel packages",
+    "name": "artisan-build/waiting-list",
+    "description": "Manage a pre-launch waiting list and invitations for Laravel-based apps",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Ed Grosvenor",
-            "email": "ed.grosvenor@wickedviral.com"
+            "email": "hello@artisan.build"
         }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "illuminate/support": "^7.0|^8.0"
     },
     "require-dev": {
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Grosv\\LaravelPackageTemplate\\": "src/"
+            "ArtisanBuild\\WaitingList\\": "src/"
         }
     },
     "autoload-dev": {
@@ -32,7 +32,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": "Grosv\\LaravelPackageTemplate\\LaravelPackageTemplateProvider"
+            "providers": "ArtisanBuild\\WaitingList\\WaitingListProvider"
         }
     },
     "scripts": {
