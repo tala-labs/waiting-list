@@ -1,26 +1,33 @@
-# Laravel Package Repository Template
-A bare bones respository template for developing Laravel packages.
+# Laravel Waiting List (Work In Progress)
+
+Manage a waiting list of users who have expressed interest in joining your Laravel-powered site. We are building this to manage the pre-launch process for our websites.
+
 ### How To Use
-Use the green "Use this template" button above to create a new repository based on this repo. You'll get a fresh repository reflecting the code as it is right now in this repo, but with a fresh commit history.
 
-After you've done that, you have some editing / refactoring to do. Depending on your IDE the instructions and difficulty of this will vary a bit. But however you accomplish them, here are your steps:
+Don't. Because it doesn't actually do anything yet. But when it's ready, you'll start with this:
 
-1. Edit composer.json to change the vendor/packagename line, the description, the author name, and the author email. Also update the autoload blocks to reflect your vendor namespace and package name.
+`composer require artisan-build/waiting-list`
 
-2. Rename LaravelPackageTemplateProvider.php to be {YourPackageName}Provider.php and change the class name inside to match. Change the namespace to match your vendor namespace.
+### What We Are Building
 
-3. Go to tests/TestCase and change the name of the loaded service provider to match your package name.
+This package will provide the following features to a Laravel site:
 
-4. Run the tests. There should be one test and it should pass. If that happens, you know you at least haven't broken the test setup and should be ready to start building something great.
+1. A table of prospective users who have expressed interest in using the site (the waiting list).
 
-### Linting and Testing
+2. A route (POST) that you can attach to your signup form. It will record the waiting list user. It can either redirect the browser or send a json object back with the newly created waiting list user so you can do whatever you like.
 
-```shell script
-composer test:unit # Runs PHPUnit
-composer lint # Runs php-cs-fixer to fix your coding style
-composer test # Runs lint and then test:unit 
-```
+3. A command that you can run to invite a particular user by email address or invite the oldest x users on your list.
 
-### Acknowledgements
+4. An invitation route that handles the invitation link sent by the above command, redirecting the user to your app's register route.
 
-I started off writing packages with the help of Marcel Pociot's excellent [Laravel Package Boilerplate](https://laravelpackageboilerplate.com/#/) and I purchased and used his course on package development. Without those two things I'd never have gotten to be nearly as proficient in package develpment as I am. If you are just starting out, I strongly recommend using those vs using this template or starting from scratch.
+5. A component that you can place on your register page that will redirect any uninvited users to the waiting list signup form.
+
+### What We Need From You
+
+1. Ideas for improving the roadmap above.
+
+2. Pull requests adding features or fixing issues.
+
+3. Reviews of pull requests.
+
+### Let's build!
