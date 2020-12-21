@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You have joined the waiting list!</title>
+    <title>Please Join Our Waiting List</title>
     <link
             href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
             rel="stylesheet"
