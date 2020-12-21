@@ -2,13 +2,13 @@
 
 namespace Tests;
 
-use Faker\Generator as Faker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class JoinWaitingListTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     private array $new;
 
@@ -17,7 +17,7 @@ class JoinWaitingListTest extends TestCase
         parent::setUp();
 
         $this->new = [
-            'name' => $this->faker->name,
+            'name'  => $this->faker->name,
             'email' => $this->faker->email,
         ];
     }

@@ -17,5 +17,6 @@ return [
         'name' => env('WAITING_FROM_NAME', config('mail.from.name')),
     ],
     'invitation_expires' => env('WAITING_INVITATION_EXPIRES', 7), // # of days the invitation is good for
+    'invitation_block_size' => env('WAITING_INVITATION_BLOCK_SIZE', 10),
 
 ];

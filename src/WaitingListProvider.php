@@ -6,7 +6,6 @@ use ArtisanBuild\WaitingList\Actions\SendInvitation;
 use ArtisanBuild\WaitingList\Commands\Install;
 use ArtisanBuild\WaitingList\Commands\Invite;
 use ArtisanBuild\WaitingList\Commands\Versions;
-use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
 
 class WaitingListProvider extends ServiceProvider

@@ -27,5 +27,9 @@ class SendInvitation
         );
 
         Mail::to($this->user)->send(new InvitationMailer($this->user));
+
+        unset($this->user->invitation_url);
+
+        $this->user->update(['invited_at' => Carbon::now()]);
     }
 }
