@@ -17,7 +17,6 @@ class CreateWaitingUsersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('name')->nullable();
-            $table->timestamp('subscribed_at')->nullable();
             $table->timestamp('invited_at')->nullable();
             $table->timestamps();
         });
