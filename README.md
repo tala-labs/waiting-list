@@ -20,7 +20,7 @@ You can edit your configuration at `config/waiting.php` or you can add the appro
 
 If you want to, you can keep uninvited users from your registration page by simply adding our invitation only component to the page like so:
 
-`<x-invitation-only/>`
+`<x-waiting-invitation-only/>`
 
 With that component in place, users that have been invited can get to the register page by clicking on their invitation link. Anyone else will be redirected to the join waiting list form.
 
