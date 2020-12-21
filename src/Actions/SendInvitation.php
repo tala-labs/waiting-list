@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ArtisanBuild\WaitingList\Actions;
-
 
 use ArtisanBuild\WaitingList\Mail\InvitationMailer;
 use ArtisanBuild\WaitingList\Models\WaitingUser;
@@ -12,10 +10,13 @@ use Illuminate\Support\Facades\URL;
 
 class SendInvitation
 {
-    public function __construct(WaitingUser $user)
+    private WaitingUser $user;
+
+    public function setUser(WaitingUser $user): self
     {
         $this->user = $user;
 
+        return $this;
     }
 
     public function execute()
@@ -25,5 +26,6 @@ class SendInvitation
             Carbon::now()->addDays(config('waiting.invitation_expires', '7'))
         );
 
+        Mail::to($this->user)->send(new InvitationMailer($this->user));
     }
 }

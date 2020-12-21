@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ArtisanBuild\WaitingList\Controllers;
-
 
 use ArtisanBuild\WaitingList\Models\WaitingUser;
 use Illuminate\Http\Request;
@@ -13,7 +11,7 @@ class JoinWaitingList
     {
         $user = WaitingUser::create(
             $request->validate([
-                'name' => ['nullable', 'string', 'max:255'],
+                'name'  => ['nullable', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
             ])
         );

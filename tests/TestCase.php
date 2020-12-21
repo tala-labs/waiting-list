@@ -3,13 +3,17 @@
 namespace Tests;
 
 use ArtisanBuild\WaitingList\WaitingListProvider;
+use Orchestra\Testbench\Concerns\CreatesApplication;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->loadLaravelMigrations();
     }
 
     public function tearDown(): void

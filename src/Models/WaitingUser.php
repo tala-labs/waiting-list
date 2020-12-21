@@ -1,16 +1,16 @@
 <?php
 
-
 namespace ArtisanBuild\WaitingList\Models;
-
 
 use Illuminate\Database\Eloquent\Model;
 
 class WaitingUser extends Model
 {
-    public function __construct()
+    protected $guarded = [];
+
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
 
         $this->setTable(config('waiting_list.table', 'waiting_users'));
 

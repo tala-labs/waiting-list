@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ArtisanBuild\WaitingList\Mail;
-
 
 use ArtisanBuild\WaitingList\Models\WaitingUser;
 use Illuminate\Bus\Queueable;
@@ -11,7 +9,8 @@ use Illuminate\Queue\SerializesModels;
 
 class InvitationMailer extends Mailable
 {
-    use SerializesModels, Queueable;
+    use SerializesModels;
+    use Queueable;
 
     public WaitingUser $user;
 

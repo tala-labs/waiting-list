@@ -1,6 +1,5 @@
 <?php
 
-
 namespace ArtisanBuild\WaitingList\View;
 
 use Illuminate\Http\Request;
@@ -8,10 +7,6 @@ use Illuminate\View\Component;
 
 class InvitationOnly extends Component
 {
-
-    /**
-     * @var Request
-     */
     private Request $request;
 
     /**
@@ -31,7 +26,7 @@ class InvitationOnly extends Component
      */
     public function render()
     {
-        if (! $this->request->hasValidSignature()) {
+        if (!$this->request->hasValidSignature()) {
             return redirect(route(config('waiting.join_route')));
         }
 
