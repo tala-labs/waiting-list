@@ -40,4 +40,8 @@ The invitee value can be an email address, in which case the system will invite 
 
 You can set the sender info (name and email address) as well as the subject of the invitation email in your configuration. You can also choose in the configuration whether to use the HTML or Markdown email template. Both templates are published when you install the package so they're fully editable. Just be careful to make sure that `$user->invitation_url` exists so that the user actually gets their invitation link.
 
+### Reporting Issues
+
+If you encounter any bugs, please open an issue. Describe the problem and copy the output of `php artisan waiting:versions` into the issue so we know what versions of everything you're using.
+
 ### Let's build!
