@@ -11,6 +11,7 @@ return [
     'join_route' => ENV('WAITING_JOIN_ROUTE', 'waiting_list__form'), // Where is your join wait list form?
 
     // Email Invitation Configuration
+    'invitation_email_format' => 'markdown', // markdown or html
     'invitation_email_subject' => env('WAITING_INVITATION_SUBJECT', 'Your spot is open!'),
     'invitation_from' => [
         'address' => env('WAITING_FROM_ADDRESS', config('mail.from.address')),

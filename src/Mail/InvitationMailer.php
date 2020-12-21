@@ -21,7 +21,7 @@ class InvitationMailer extends Mailable
 
     public function build()
     {
-        if (config('waiting.email_format') === 'markdown') {
+        if (config('waiting.invitation_email_format') === 'markdown') {
             return $this->from(config('waiting.invitation_from'))
                 ->subject(config('waiting.invitation_email_subject'))
                 ->markdown('waiting::emails.invitation_markdown');

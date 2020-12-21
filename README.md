@@ -1,33 +1,43 @@
 # Laravel Waiting List (Work In Progress)
 
-Manage a waiting list of users who have expressed interest in joining your Laravel-powered site. We are building this to manage the pre-launch process for our websites.
+Let users sign up for early access to your Laravel app and invite them in over time. 
+
+<a href="https://artisan.build"><img src="https://repository-images.githubusercontent.com/323002393/4261fb80-42ba-11eb-9d7b-2c295d42da7b" alt="Artisan, Build" height="360"></a>
 
 ### How To Use
 
-Don't. Because it doesn't actually do anything yet. But when it's ready, you'll start with this:
+Make sure you're running at least PHP 7.4 and Laravel 7. Then run the following:
 
 `composer require artisan-build/waiting-list`
 
-### What We Are Building
+Then run `php artisan waiting:install` to publish all the assets and `php artisan migrate` to run the migration for the waiting list table.
 
-This package will provide the following features to a Laravel site:
+### Setting the Configuration Options
 
-1. A table of prospective users who have expressed interest in using the site (the waiting list) `waiting_users` with model `WaitingUser`.
+You can edit your configuration at `config/waiting.php` or you can add the appropriate values to your .env to set the values you want.
 
-2. A route (POST) `waiting_list__join` that you can attach to your signup form. It will record the waiting list user. It can either redirect the browser or send a json object back with the newly created waiting list user so you can do whatever you like.
+### Protecting Your Registration Page
 
-3. A command that you can run to invite a particular user by email address or invite the oldest x users on your list.
+If you want to, you can keep uninvited users from your registration page by simply adding our invitation only component to the page like so:
 
-4. A signed url pointing at your site's registration page, allowing invited users to register as long as they click on the valid signed link.
+`<x-invitation-only/>`
 
-5. A component that you can place on your register page that will redirect any uninvited users to the waiting list signup form. `x-invitation-only`
+With that component in place, users that have been invited can get to the register page by clicking on their invitation link. Anyone else will be redirected to the join waiting list form.
 
-### What We Need From You
+### Inviting Users
 
-1. Ideas for improving the roadmap above.
+To invite users, just run the following artisan command from your production site:
 
-2. Pull requests adding features or fixing issues.
+`php artisan waiting.invite {invitee?}`
 
-3. Reviews of pull requests.
+The invitee value can be left off, in which case the system will invite the number of waiting users set in your configuration, from oldest to newest.
+
+The invitee value can be an integer, in which case the system will invite that number of waiting users, from oldest to newest.
+
+The invitee value can be an email address, in which case the system will invite that user if they exist.
+
+### The Invitation Email
+
+You can set the sender info (name and email address) as well as the subject of the invitation email in your configuration. You can also choose in the configuration whether to use the HTML or Markdown email template. Both templates are published when you install the package so they're fully editable. Just be careful to make sure that `$user->invitation_url` exists so that the user actually gets their invitation link.
 
 ### Let's build!
