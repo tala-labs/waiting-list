@@ -32,9 +32,7 @@ class SendInvitationsTest extends TestCase
             ]);
         }
 
-        Route::get('/register', function () {
-            return ' ';
-        })->name('register');
+        Route::view('/register', 'waiting::test.register')->name('register');
 
         $this->users = WaitingUser::all();
     }
@@ -92,5 +90,24 @@ class SendInvitationsTest extends TestCase
             ->assertExitCode(0);
 
         Mail::assertSent(InvitationMailer::class, 10);
+    }
+
+    /** @test */
+    public function invitationOnlyComponentProtectsRegisterRoute()
+    {
+        $this->withoutExceptionHandling()
+            ->get(route('register'))
+            ->assertSuccessful()
+            ->assertSee('document.location.href = ')
+            ->assertSee(route('waiting_list__form'));
+    }
+
+    /** @test */
+    public function invitationOnlyComponentAllowsSignedUrls()
+    {
+        $this->get(WaitingUser::first()->invitation_url)
+            ->assertSuccessful()
+            ->assertSee('Register Route Found')
+            ->assertDontSee('document.location.href');
     }
 }

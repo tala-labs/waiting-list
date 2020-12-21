@@ -6,6 +6,8 @@ use ArtisanBuild\WaitingList\Actions\SendInvitation;
 use ArtisanBuild\WaitingList\Commands\Install;
 use ArtisanBuild\WaitingList\Commands\Invite;
 use ArtisanBuild\WaitingList\Commands\Versions;
+use ArtisanBuild\WaitingList\View\InvitationOnly;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class WaitingListProvider extends ServiceProvider
@@ -36,6 +38,8 @@ class WaitingListProvider extends ServiceProvider
                 Install::class,
             ]);
         }
+
+        Blade::component(InvitationOnly::class, 'invitation-only', 'waiting');
     }
 
     public function register(): void

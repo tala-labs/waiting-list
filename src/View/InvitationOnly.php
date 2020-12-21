@@ -27,7 +27,9 @@ class InvitationOnly extends Component
     public function render()
     {
         if (!$this->request->hasValidSignature()) {
-            return redirect(route(config('waiting.join_route')));
+            return <<<'blade'
+        <script>document.location.href = "{{ route('waiting_list__form') }}"</script>
+    blade;
         }
 
         return <<<'blade'

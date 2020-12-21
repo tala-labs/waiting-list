@@ -8,7 +8,7 @@ return [
     // Routing Stuff
     'redirect_route' => ENV('WAITING_REDIRECT_ROUTE', 'waiting_list__joined'), // Redirect after joining wait list
     'register_route' => ENV('WAITING_REGISTER_ROUTE', 'register'), // Where you want invited users sent?
-    'join_route' => ENV('WAITING_JOIN_ROUTE', 'waiting_list__join'), // Where is your join wait list form?
+    'join_route' => ENV('WAITING_JOIN_ROUTE', 'waiting_list__form'), // Where is your join wait list form?
 
     // Email Invitation Configuration
     'invitation_email_subject' => env('WAITING_INVITATION_SUBJECT', 'Your spot is open!'),
@@ -17,6 +17,6 @@ return [
         'name' => env('WAITING_FROM_NAME', config('mail.from.name')),
     ],
     'invitation_expires' => env('WAITING_INVITATION_EXPIRES', 7), // # of days the invitation is good for
-    'invitation_block_size' => env('WAITING_INVITATION_BLOCK_SIZE', 10),
+    'invitation_block_size' => env('WAITING_INVITATION_BLOCK_SIZE', 10), // # of invitations to send if not specified
 
 ];
