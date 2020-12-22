@@ -28,7 +28,7 @@ class InvitationOnly extends Component
     {
         if (!$this->request->hasValidSignature()) {
             return <<<'blade'
-        <script>document.location.href = "{{ route('waiting_list__form') }}"</script>
+        <script>window.location.href = "{{ route('waiting_list__form') }}"</script>
     blade;
         }
 

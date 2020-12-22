@@ -98,7 +98,7 @@ class SendInvitationsTest extends TestCase
         $this->withoutExceptionHandling()
             ->get(route('register'))
             ->assertSuccessful()
-            ->assertSee('document.location.href = ')
+            ->assertSee('window.location.href = ')
             ->assertSee(route('waiting_list__form'));
     }
 
@@ -108,6 +108,6 @@ class SendInvitationsTest extends TestCase
         $this->get(WaitingUser::first()->invitation_url)
             ->assertSuccessful()
             ->assertSee('Register Route Found')
-            ->assertDontSee('document.location.href');
+            ->assertDontSee('window.location.href');
     }
 }
