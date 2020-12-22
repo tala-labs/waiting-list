@@ -12,7 +12,7 @@ class Install extends Command
 
     public function handle()
     {
-        $this->call('vendor:publish', ['--provider' => 'ArtisanBuild\\WaitingList\\WaitingListProvider', '--force' => true]);
+        $this->call('vendor:publish', ['--provider' => 'ArtisanBuild\\WaitingList\\WaitingListProvider']);
         $this->info('Installation finished');
     }
 }
