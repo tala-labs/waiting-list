@@ -2,8 +2,8 @@
 
 return [
     // Database Stuff
-    'connection' => null, // Leave null to use default connection. Otherwise use connection name.
-    'table'      => 'waiting_users', // Leave as waiting_users if you are using our migrations.
+    'connection' => env('WAITING_CONNECTION', null), // Leave null to use default connection. Otherwise use connection name.
+    'table'      => env('WAITING_TABLE', 'waiting_users'), // Leave as waiting_users if you are using our migrations.
 
     // Routing Stuff
     'redirect_route' => ENV('WAITING_REDIRECT_ROUTE', 'waiting_list__joined'), // Redirect after joining wait list
@@ -11,7 +11,7 @@ return [
     'join_route'     => ENV('WAITING_JOIN_ROUTE', 'waiting_list__form'), // Where is your join wait list form?
 
     // Email Invitation Configuration
-    'invitation_email_format'  => 'markdown', // markdown or html
+    'invitation_email_format'  => env('WAITING_INVITATION_FORMAT', 'markdown'), // markdown or html
     'invitation_email_subject' => env('WAITING_INVITATION_SUBJECT', 'Your spot is open!'),
     'invitation_from'          => [
         'address' => env('WAITING_FROM_ADDRESS', config('mail.from.address')),
