@@ -29,6 +29,6 @@ class InvitationMailer extends Mailable
 
         return $this->from(config('waiting.invitation_from'))
             ->subject(config('waiting.invitation_email_subject'))
-            ->$this->view('waiting::emails.invitation');
+            ->view('waiting::emails.invitation');
     }
 }
